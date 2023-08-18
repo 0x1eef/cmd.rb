@@ -17,8 +17,11 @@ cmd.rb works in practice:
 
 ```ruby
 #!/usr/bin/env ruby
-require "cmd"
-class Ls < Cmd
+class Ls
+  require "cmd"
+  include Cmd::ARGV
+  include Cmd::OptionParser
+
   set_banner usage: "ls [OPTIONS]",
              description: "Lists the contents of a directory"
   set_option "-g PATTERN", "--grep PATTERN", "A regular expression", Regexp
