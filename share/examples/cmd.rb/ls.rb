@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require "cmd"
 class Ls < Cmd
   set_banner usage: "ls [OPTIONS]",
@@ -7,7 +8,7 @@ class Ls < Cmd
   set_default grep: /.+/, path: "/"
 
   def run
-    options = parse(argv)
+    options = parse!(argv)
     options.help ? show_help : run_command(options)
   end
 
@@ -17,7 +18,7 @@ class Ls < Cmd
     puts %x(ls -1 #{options.path})
           .each_line
           .grep(options.grep)
-          .join("\n")
+          .join
   end
 end
 

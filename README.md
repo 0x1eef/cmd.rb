@@ -16,7 +16,7 @@ less powerful than `/bin/ls`, and only serves to illustrate how
 cmd.rb works in practice:
 
 ```ruby
-# lib/ls.rb
+#!/usr/bin/env ruby
 require "cmd"
 class Ls < Cmd
   set_banner usage: "ls [OPTIONS]",
@@ -26,7 +26,7 @@ class Ls < Cmd
   set_default grep: /.+/, path: "/"
 
   def run
-    options = parse(argv)
+    options = parse!(argv)
     options.help ? show_help : run_command(options)
   end
 
@@ -36,7 +36,7 @@ class Ls < Cmd
     puts %x(ls -1 #{options.path})
           .each_line
           .grep(options.grep)
-          .join("\n")
+          .join
   end
 end
 
@@ -45,9 +45,11 @@ end
 Ls.new(ARGV).run
 ```
 
-When we run `ruby lib/ls.rb --help`, the following output is produced:
+When we run `./ls --help`:
 
 ```
+$ chmod u+x ls
+$ ./ls --help
 Usage: ls [OPTIONS]
 
 Description:
@@ -60,9 +62,14 @@ Options:
 
 ```
 
-And when we run `ruby lib/ls.rb --path / --grep e`, the directories
-`dev`, `etc`, and `home` are written to standard output on a UNIX-like
-operating system.
+And when we run `./ls --path / --grep e`:
+
+```
+$ ./ls --path / --grep e
+dev
+etc
+home
+```
 
 ## Install
 
