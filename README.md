@@ -9,7 +9,7 @@ from one project to allow me easily re-use it in another.
 
 ## Examples
 
-### An "ls" command
+### A basic command
 
 The following example demonstrates an "ls" command. It is much
 less powerful than `/bin/ls`, and only serves to illustrate how
