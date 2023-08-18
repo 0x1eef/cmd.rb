@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Cmd
   require_relative "cmd/mixins/option_parser"
   include Cmd::OptionParser
