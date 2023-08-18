@@ -9,7 +9,7 @@ from one project to allow me easily re-use it in another.
 
 ## Examples
 
-### A basic command
+### Basic command
 
 The following example demonstrates an "ls" command. It is much
 less powerful than `/bin/ls`, and only serves to illustrate how
@@ -17,6 +17,7 @@ cmd.rb works in practice:
 
 ```ruby
 #!/usr/bin/env ruby
+
 class Ls
   require "cmd"
   include Cmd::ARGV

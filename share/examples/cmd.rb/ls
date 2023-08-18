@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 class Ls
   require "cmd"
   include Cmd::ARGV
