@@ -3,17 +3,17 @@
 cmd.rb is a library for building command-line applications
 in Ruby. The interface is centered around a class that implements
 a command (or it could be a sub-command) that defines a banner,
-a set of options, and a set of defaults for those options. At
-the moment cmd.rb is not mature, and it has been quickly extracted
-from one project to allow me easily re-use it in another.
+a set of options, and a set of defaults for those options. The
+option parsing implementation is delegated to
+[ruby/optparse](https://github.com/ruby/optparse)
+for the most part, with a few minor enhancements.
 
 ## Examples
 
 ### Basic command
 
-The following example demonstrates an "ls" command. It is much
-less powerful than `/bin/ls`, and only serves to illustrate how
-cmd.rb works in practice:
+The following example demonstrates a basic "ls" command that is
+implemented with `Dir.entries`:
 
 ```ruby
 #!/usr/bin/env ruby
@@ -36,10 +36,10 @@ class Ls
   private
 
   def run_command(options)
-    puts %x(ls -1 #{options.path})
-          .each_line
-          .grep(options.grep)
-          .join
+    puts Dir.entries(options.path)
+            .grep(options.grep)
+            .sort
+            .join("\n")
   end
 end
 
@@ -73,6 +73,11 @@ dev
 etc
 home
 ```
+
+## Sources
+
+* [Source code (GitHub)](https://github.com/0x1eef/cmd.rb#readme)
+* [Source code (GitLab)](https://gitlab.com/0x1eef/cmd.rb#about)
 
 ## Install
 

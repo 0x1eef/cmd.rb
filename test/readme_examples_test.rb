@@ -7,7 +7,7 @@ class READMETest < Test::Unit::TestCase
 
   def test_ls_command
     assert_equal "dev\netc\nhome\n",
-                 run_example("ls --path test/fakefs/ --grep e").stdout
+                 run_example("ls --path test/fakefs/ --grep [^.gitkeep]").stdout
   end
 
   private
