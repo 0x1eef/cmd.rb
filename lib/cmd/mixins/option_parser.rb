@@ -42,13 +42,6 @@ module Cmd::OptionParser
     options
   end
 
-  def show_help(io = $stdout)
-    banner = self.class.banner
-    io.puts "Usage: #{banner.usage}\n\n" \
-            "Description:\n  #{banner.description}\n\n" \
-            "Options: #{option_parser.help}\n"
-  end
-
   def option_parser
     self.class.option_parser
   end

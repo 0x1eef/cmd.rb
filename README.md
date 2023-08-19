@@ -21,6 +21,7 @@ cmd.rb works in practice:
 class Ls
   require "cmd"
   include Cmd::ARGV
+  include Cmd::Help
   include Cmd::OptionParser
 
   set_banner usage: "ls [OPTIONS]",
