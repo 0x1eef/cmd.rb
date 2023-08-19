@@ -20,9 +20,7 @@ cmd.rb works in practice:
 
 class Ls
   require "cmd"
-  include Cmd::ARGV
-  include Cmd::Help
-  include Cmd::OptionParser
+  include Cmd
 
   set_banner usage: "ls [OPTIONS]",
              description: "Lists the contents of a directory"
