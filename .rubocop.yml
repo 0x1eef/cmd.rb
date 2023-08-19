@@ -15,7 +15,7 @@ AllCops:
   Include:
     - lib/*.rb
     - lib/**/*.rb
-    - test/*_test.rb
+    - test/*.rb
 
 ##
 # Enabled
@@ -31,4 +31,6 @@ Layout/MultilineMethodCallIndentation:
 Layout/EmptyLineBetweenDefs:
   Enabled: false
 Style/TrivialAccessors:
+  Enabled: false
+Style/CommandLiteral:
   Enabled: false
