@@ -81,7 +81,18 @@ home
 
 ## Install
 
-TODO: add instructions
+cmd.rb is distributed as a RubyGem through its git repositories. <br>
+[GitHub](https://github.com/0x1eef/cmd.rb),
+and
+[GitLab](https://gitlab.com/0x1eef/cmd.rb)
+are available as sources.
+
+**Gemfile**
+
+```ruby
+gem "cmd.rb", github: "0x1eef/cmd.rb", tag: "v0.1.0"
+gem "ryo.rb", github: "0x1eef/ryo.rb"
+```
 
 ## <a id="license"> License </a>
 
