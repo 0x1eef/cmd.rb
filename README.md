@@ -29,7 +29,7 @@ class Ls
   set_default grep: /.+/, path: "/"
 
   def run
-    options = parse!(argv)
+    options = parse_options(argv)
     options.help ? show_help : run_command(options)
   end
 

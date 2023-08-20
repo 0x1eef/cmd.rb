@@ -1,3 +1,4 @@
+
 module Cmd::Help
   def show_help(io = $stdout)
     banner = self.class.banner

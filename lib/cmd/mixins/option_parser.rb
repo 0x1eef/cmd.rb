@@ -23,7 +23,10 @@ module Cmd::OptionParser
     end
 
     def option_parser
-      @option_parser ||= ::OptionParser.new(nil, 26, " " * 2).tap { _1.banner = "" }
+      @option_parser ||= ::OptionParser.new(nil, 26, " " * 2).tap do
+        _1.banner = ""
+        _1.on("-h", "--help", "Show help")
+      end
     end
 
     def banner
@@ -35,10 +38,15 @@ module Cmd::OptionParser
     end
   end
 
-  def parse!(argv)
+  def parse_options(argv)
     options = Ryo.from(self.class.defaults)
-    option_parser.on("-h", "--help", "Show help") { options.h = options.help = true }
     option_parser.parse(argv, into: options)
+    options
+  end
+
+  def parse_options!(argv)
+    options = Ryo.from(self.class.defaults)
+    option_parser.parse!(argv, into: options)
     options
   end
 
