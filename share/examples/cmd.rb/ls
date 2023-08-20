@@ -7,8 +7,8 @@ class Ls
 
   set_banner usage: "ls [OPTIONS]",
              description: "Lists the contents of a directory"
-  set_option "-g PATTERN", "--grep PATTERN", "A regular expression", Regexp
-  set_option "-p PATH", "--path PATH", "The target path"
+  set_option "-g PATTERN", "--grep PATTERN", "A regular expression", as: Regexp
+  set_option "-p PATH", "--path PATH", "The target path", as: String
   set_default grep: /.+/, path: "/"
 
   def run

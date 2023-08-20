@@ -14,8 +14,8 @@ module Cmd::OptionParser
       banner.description = description
     end
 
-    def set_option(short, long, desc, *rest)
-      option_parser.on(short, long, desc, *rest)
+    def set_option(short, long, desc, as: String)
+      option_parser.on(short, long, desc, as)
     end
 
     def set_default(defaults)
