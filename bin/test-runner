@@ -1,0 +1,4 @@
+#!/bin/sh
+for test in "test/*_test.rb"; do
+  ruby $test || exit 1
+done
