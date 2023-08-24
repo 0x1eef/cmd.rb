@@ -3,6 +3,6 @@
 module Cmd::ARGV
   attr_reader :argv
   def initialize(argv)
-    @argv = argv
+    @argv = argv.dup
   end
 end
