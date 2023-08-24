@@ -11,7 +11,8 @@ require "ryo"
 # available to a class who include this module, and the
 # {Cmd::OptionParser Cmd::OptionParser}
 # modules provides instance methods available to a class who include this
-# module.
+# module. Classes who include the {Cmd Cmd} module indirectly include this
+# module as well.
 module Cmd::OptionParser
   def self.included(klass)
     klass.extend(ClassMethods)
