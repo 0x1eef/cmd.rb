@@ -6,7 +6,7 @@ a command (or it could be a sub-command) that defines a banner,
 a set of options, and a set of defaults for those options. The
 option parsing implementation is delegated to
 [ruby/optparse](https://github.com/ruby/optparse)
-for the most part, with a few minor enhancements.
+(with a few minor enhancements).
 
 ## Examples
 
@@ -48,7 +48,7 @@ end
 Ls.new(ARGV).run
 ```
 
-When we run `./ls --help`:
+When `./ls --help` is run:
 
 ```
 $ chmod u+x ls
@@ -65,7 +65,7 @@ Options:
 
 ```
 
-And when we run `./ls --path / --grep e`:
+And when `./ls --path / --grep e` is run:
 
 ```
 $ ./ls --path / --grep e
