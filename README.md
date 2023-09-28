@@ -8,9 +8,7 @@ option parsing implementation is delegated to
 [ruby/optparse](https://github.com/ruby/optparse)
 (with a few minor enhancements).
 
-## Examples
-
-### Basic command
+## Example
 
 The following example demonstrates a basic "ls" command that is
 implemented with `Dir.entries`:
