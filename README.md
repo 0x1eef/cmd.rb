@@ -11,7 +11,9 @@ option parsing implementation is delegated to
 ## Example
 
 The following example demonstrates a basic "ls" command that is
-implemented with `Dir.entries`:
+implemented with `Dir.entries`. The command accepts two options
+that are assigned default values in case the command is run with
+no arguments.
 
 ```ruby
 #!/usr/bin/env ruby
