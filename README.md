@@ -13,7 +13,7 @@ option parsing implementation is delegated to
 The following example demonstrates a basic "ls" command that is
 implemented with `Dir.entries`. The command accepts two options
 that are assigned default values in case the command is run with
-no arguments.
+no arguments:
 
 ```ruby
 #!/usr/bin/env ruby
