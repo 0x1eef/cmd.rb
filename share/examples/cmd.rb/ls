@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
+require_relative "setup"
 
 class Ls
   require "cmd"
@@ -9,7 +10,7 @@ class Ls
              description: "Lists the contents of a directory"
   set_option "-g PATTERN", "--grep PATTERN", "A regular expression", as: Regexp
   set_option "-d PATH", "--directory PATH", "A path to a directory", as: String
-  set_default grep: /.+/, path: "/"
+  set_default grep: /.+/, directory: "/"
 
   def run
     options = parse_options(argv)
