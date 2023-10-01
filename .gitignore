@@ -1,3 +1,5 @@
 *.lock
 .yardoc/
 doc/
+.bundle/
+.localgems/
