@@ -10,10 +10,10 @@ option parsing implementation is delegated to
 
 ## Example
 
-The following example demonstrates a basic "ls" command that is
+The following example demonstrates a simple command that is
 implemented with `Dir.entries`. The command accepts two options
-that are assigned default values in case the command is run with
-no arguments:
+that are assigned default values for when the command is run with
+no arguments. Example:
 
 ```ruby
 #!/usr/bin/env ruby
@@ -25,7 +25,7 @@ class Ls
   set_banner usage: "ls [OPTIONS]",
              description: "Lists the contents of a directory"
   set_option "-g PATTERN", "--grep PATTERN", "A regular expression", as: Regexp
-  set_option "-p PATH", "--path PATH", "The target path", as: String
+  set_option "-d PATH", "--directory PATH", "A path to a directory", as: String
   set_default grep: /.+/, path: "/"
 
   def run
@@ -36,7 +36,7 @@ class Ls
   private
 
   def run_command(options)
-    puts Dir.entries(options.path)
+    puts Dir.entries(options.directory)
             .grep(options.grep)
             .sort
             .join("\n")
@@ -48,7 +48,7 @@ end
 Ls.new(ARGV).run
 ```
 
-When `./ls --help` is run:
+When `./ls --help` is executed:
 
 ```
 $ chmod u+x ls
@@ -65,10 +65,10 @@ Options:
 
 ```
 
-And when `./ls --path / --grep e` is run:
+When `./ls --directory / --grep e` is executed:
 
 ```
-$ ./ls --path / --grep e
+$ ./ls --directory / --grep e
 dev
 etc
 home
