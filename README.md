@@ -26,7 +26,7 @@ class Ls
              description: "Lists the contents of a directory"
   set_option "-g PATTERN", "--grep PATTERN", "A regular expression", as: Regexp
   set_option "-d PATH", "--directory PATH", "A path to a directory", as: String
-  set_default grep: /.+/, path: "/"
+  set_default grep: /.+/, path: Dir.home
 
   def run
     options = parse_options(argv)
@@ -60,7 +60,7 @@ Description:
 
 Options:
   -g, --grep PATTERN         A regular expression
-  -p, --path PATH            The target path
+  -p, --path PATH            A path to a directory
   -h, --help                 Show help
 
 ```
