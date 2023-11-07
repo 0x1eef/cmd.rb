@@ -15,7 +15,7 @@ implemented with `Dir.entries`. The command accepts two options
 that are assigned default values for when the command is executed
 with no arguments.
 
-**Implementation**
+**Definition**
 
 ```ruby
 #!/usr/bin/env ruby
