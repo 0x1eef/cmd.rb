@@ -13,7 +13,9 @@ option parsing implementation is delegated to
 The following example demonstrates a simple command that is
 implemented with `Dir.entries`. The command accepts two options
 that are assigned default values for when the command is executed
-with no arguments:
+with no arguments.
+
+**Implementation**
 
 ```ruby
 #!/usr/bin/env ruby
@@ -48,7 +50,7 @@ end
 Ls.new(ARGV).run
 ```
 
-When `./ls --help` is executed:
+**Command help (-h)**
 
 ```
 $ chmod u+x ls
@@ -63,15 +65,6 @@ Options:
   -p, --path PATH            A path to a directory
   -h, --help                 Show help
 
-```
-
-When `./ls --directory / --grep e` is executed:
-
-```
-$ ./ls --directory / --grep e
-dev
-etc
-home
 ```
 
 ## Sources
