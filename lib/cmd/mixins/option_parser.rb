@@ -49,9 +49,13 @@ module Cmd::OptionParser
     # @param [Class] as
     #  The type (String, Integer, etc) of the option's value.
     #
+    # @param [Object] default
+    #  The default value for an option.
+    #
     # @return [void]
-    def set_option(short, long, desc, as: String)
+    def set_option(short, long, desc, as: String, default: nil)
       option_parser.on(short, long, desc, as)
+      set_default({ short => default, long => default })
     end
 
     ##

@@ -26,9 +26,8 @@ class Ls
 
   set_banner usage: "ls [OPTIONS]",
              description: "Lists the contents of a directory"
-  set_option "-g PATTERN", "--grep PATTERN", "A regular expression", as: Regexp
-  set_option "-d PATH", "--directory PATH", "A path to a directory", as: String
-  set_default grep: /.+/, path: Dir.home
+  set_option "-g PATTERN", "--grep PATTERN", "A regular expression", as: Regexp, default: /.+/
+  set_option "-d PATH", "--directory PATH", "A path to a directory", as: String, default: Dir.home
 
   def run
     options = parse_options(argv)
