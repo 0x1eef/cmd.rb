@@ -12,8 +12,7 @@ option parsing implementation is delegated to
 
 The following example demonstrates a simple command that is
 implemented with `Dir.entries`. The command accepts two options
-that are assigned default values for when the command is executed
-with no arguments:
+that have fallback default values set:
 
 **Definition**
 
