@@ -79,7 +79,7 @@ are available as sources.
 **Gemfile**
 
 ```ruby
-gem "cmd.rb", github: "0x1eef/cmd.rb", tag: "v0.2.1"
+gem "cmd.rb", github: "0x1eef/cmd.rb"
 gem "ryo.rb", github: "0x1eef/ryo.rb"
 ```
 
