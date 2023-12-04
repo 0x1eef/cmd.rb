@@ -7,12 +7,7 @@ require "ryo"
 # The {Cmd::OptionParser Cmd::OptionParser} module provides a light wrapper
 # around Ruby's
 # [OptionParser](https://docs.ruby-lang.org/en/3.2/OptionParser.html)
-# class. The {Cmd::OptionParser::ClassMethods} module provides class methods
-# available to a class who include this module, and the
-# {Cmd::OptionParser Cmd::OptionParser}
-# modules provides instance methods available to a class who include this
-# module. Classes who include the {Cmd Cmd} module indirectly include this
-# module as well.
+# class.
 module Cmd::OptionParser
   def self.included(klass)
     klass.extend(ClassMethods)
