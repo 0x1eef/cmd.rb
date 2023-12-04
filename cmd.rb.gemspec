@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
+version = File.binread File.join(__dir__, "VERSION")
 Gem::Specification.new do |gem|
   gem.name = "cmd.rb"
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/cmd.rb#readme"
-  gem.version = File.binread("./VERSION")[/[\d.]+/]
+  gem.version = version[/[\d.]+/]
   gem.licenses = ["0BSD"]
   gem.files = `git ls-files`.split($/)
   gem.require_paths = ["lib"]
