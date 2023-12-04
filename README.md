@@ -19,10 +19,8 @@ that have fallback default values set:
 ```ruby
 #!/usr/bin/env ruby
 
-class Ls
-  require "cmd"
-  include Cmd
-
+require "cmd"
+class Ls < Cmd
   set_banner usage: "ls [OPTIONS]",
              description: "Lists the contents of a directory"
   set_option "-g PATTERN", "--grep PATTERN", "A regular expression", as: Regexp, default: /.+/
