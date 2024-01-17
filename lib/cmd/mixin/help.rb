@@ -1,5 +1,5 @@
 
-module Cmd::Help
+module Cmd::Mixin::Help
   def show_help(io = $stdout)
     banner = self.class.banner
     io.puts "Usage: #{banner.usage}\n\n" \

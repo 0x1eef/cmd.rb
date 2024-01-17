@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 class Cmd
-  require_relative "cmd/mixins/argv"
-  require_relative "cmd/mixins/help"
-  require_relative "cmd/mixins/option_parser"
+  require_relative "cmd/mixin"
 
-  include ARGV
-  include Help
+  include Mixin::ARGV
+  include Mixin::Help
 
   def self.inherited(klass)
-    klass.class_eval { include(OptionParser) }
+    klass.class_eval { include(Mixin::OptionParser) }
   end
 end

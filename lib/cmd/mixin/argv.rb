@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 ##
-# The {Cmd::ARGV} module provides an initialize method, and an
-# attribute reader for an array of strings (usually ARGV). Classes
-# who include the {Cmd Cmd} module indirectly include this module as
-# well.
-module Cmd::ARGV
+# The {Cmd::Mixin::ARGV Cmd::Mixin::ARGV} module provides
+# an initialize method, and an attribute reader for an
+# array of strings (usually ARGV).
+module Cmd::Mixin::ARGV
   ##
   # @return [Array<String>]
   #  Returns an array of strings.

@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require "optparse"
-require "ryo"
-
 ##
-# The {Cmd::OptionParser Cmd::OptionParser} module provides a light wrapper
-# around Ruby's
+# The {Cmd::Mixin::OptionParser Cmd::Mixin::OptionParser} module enhances
+# the functionality of Ruby's
 # [OptionParser](https://docs.ruby-lang.org/en/3.2/OptionParser.html)
 # class.
-module Cmd::OptionParser
+module Cmd::Mixin::OptionParser
+  require "cmd-optparse"
+  require "ryo"
+
   def self.included(klass)
     klass.extend(ClassMethods)
   end
@@ -49,7 +49,7 @@ module Cmd::OptionParser
     #
     # @return [void]
     def set_option(short, long, desc, as: String, default: nil)
-      option_parser.on(short, long, desc, as)
+      option_parser.on(short, long, desc, as) { _1 || true }
       set_default({ short => default, long => default })
     end
 
@@ -64,7 +64,7 @@ module Cmd::OptionParser
     end
 
     ##
-    # (see Cmd::OptionParser#option_parser)
+    # (see Cmd::Mixin::OptionParser#option_parser)
     def option_parser
       @option_parser ||= ::OptionParser.new(nil, 26, " " * 2).tap do
         _1.banner = ""
@@ -89,6 +89,7 @@ module Cmd::OptionParser
   # Parses an array of strings with
   # [OptionParser#parse](https://docs.ruby-lang.org/en/3.2/OptionParser.html#method-i-parse).
   #
+
   # @param [Array<String>] argv
   #  An array of strings
   #
