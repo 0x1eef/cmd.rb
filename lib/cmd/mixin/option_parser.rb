@@ -66,7 +66,7 @@ module Cmd::Mixin::OptionParser
     ##
     # (see Cmd::Mixin::OptionParser#option_parser)
     def option_parser
-      @option_parser ||= ::OptionParser.new(nil, 26, " " * 2).tap do
+      @option_parser ||= Cmd::OptionParser.new(nil, 26, " " * 2).tap do
         _1.banner = ""
         _1.on("-h", "--help", "Show help")
       end
