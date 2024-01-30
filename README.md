@@ -80,7 +80,7 @@ are available as sources.
 
 ```ruby
 # Gemfile
-gem "cmd.rb", github: "0x1eef/cmd.rb", tag: "v0.3.3"
+gem "cmd.rb", github: "0x1eef/cmd.rb", tag: "v0.4.0"
 ```
 
 **Rubygems.org**
