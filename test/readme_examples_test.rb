@@ -3,8 +3,6 @@
 require_relative "setup"
 
 class READMETest < Test::Unit::TestCase
-  include Test::Cmd
-
   def test_ls_command
     assert_equal "dev\netc\nhome\n",
                  run_example("ls --directory test/fakefs/ --grep [^.gitkeep]").stdout
