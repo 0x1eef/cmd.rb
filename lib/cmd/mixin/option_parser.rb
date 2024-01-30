@@ -6,7 +6,7 @@
 # [OptionParser](https://docs.ruby-lang.org/en/3.2/OptionParser.html)
 # class.
 module Cmd::Mixin::OptionParser
-  require "cmd-optparse"
+  require "cli-option_parser"
   require "ryo"
 
   def self.included(klass)
@@ -66,7 +66,7 @@ module Cmd::Mixin::OptionParser
     ##
     # (see Cmd::Mixin::OptionParser#option_parser)
     def option_parser
-      @option_parser ||= Cmd::OptionParser.new(nil, 26, " " * 2).tap do
+      @option_parser ||= CLI::OptionParser.new(nil, 26, " " * 2).tap do
         _1.banner = ""
         _1.on("-h", "--help", "Show help")
       end

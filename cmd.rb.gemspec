@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.summary = "A library for building command-line applications, in Ruby."
   gem.description = gem.summary
   gem.add_runtime_dependency "ryo.rb", "~> 0.4"
-  gem.add_runtime_dependency "cmd-optparse.rb", "~> 0.5"
+  gem.add_runtime_dependency "cli-option_parser.rb", "~> 0.5"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
   gem.add_development_dependency "yard", "~> 0.9"
   gem.add_development_dependency "redcarpet", "~> 3.5"
