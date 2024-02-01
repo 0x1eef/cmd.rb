@@ -50,7 +50,11 @@ module Cmd::Mixin::OptionParser
     # @return [void]
     def set_option(short, long, desc, as: String, default: nil)
       option_parser.on(short, long, desc, as) { _1 || true }
-      set_default({ short => default, long => default })
+      switch = option_parser.top.list[-1]
+      set_default({
+        switch.short[0][1..] => default,
+        switch.long[0][2..] => default
+      })
     end
 
     ##
@@ -60,7 +64,11 @@ module Cmd::Mixin::OptionParser
     #
     # @return [void]
     def set_default(defaults)
-      @defaults = Ryo.from(defaults)
+      if @defaults
+        Ryo.assign(@defaults, defaults)
+      else
+        @defaults = Ryo.from(defaults)
+      end
     end
 
     ##
