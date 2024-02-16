@@ -49,7 +49,10 @@ module Cmd::Mixin::OptionParser
     #
     # @return [void]
     def set_option(short, long, desc, as: String, default: nil)
-      option_parser.on(short, long, desc, as) { _1 || true }
+      option_parser.on(short, long, desc, as) do |v|
+        switch = __switch_search(short, long)
+        v || __optional_switches.any? { _1 === switch } ? v : true
+      end
       switch = option_parser.top.list[-1]
       set_default({
         switch.short[0][1..] => default,
@@ -90,6 +93,24 @@ module Cmd::Mixin::OptionParser
     # @private
     def defaults
       @defaults ||= Ryo({})
+    end
+
+    ##
+    # @private
+    def __switch_search(short, long)
+      option_parser.top.list.find do |s|
+        s.short[0] == short[/[^\s]*/] &&
+        s.long[0] == long[/[^\s*]*/]
+      end
+    end
+
+    ##
+    # @private
+    def __optional_switches
+      [
+        CLI::OptionParser::Switch::PlacedArgument,
+        CLI::OptionParser::Switch::OptionalArgument
+      ]
     end
   end
 
