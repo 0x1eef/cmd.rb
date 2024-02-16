@@ -12,7 +12,8 @@ option parsing implementation is delegated to
 
 The following example demonstrates a simple command that is
 implemented with `Dir.entries`. The command accepts two options
-that have fallback default values set:
+that have fallback default values set for when an option is not
+given:
 
 **Definition**
 
@@ -80,7 +81,7 @@ are available as sources.
 
 ```ruby
 # Gemfile
-gem "cmd.rb", github: "0x1eef/cmd.rb", tag: "v0.4.0"
+gem "cmd.rb", github: "0x1eef/cmd.rb"
 ```
 
 **Rubygems.org**
