@@ -52,7 +52,8 @@ module Cmd::Mixin::OptionParser
     def set_option(short, long, desc, as: String, default: nil)
       option_parser.on(short, long, desc, as) do |v|
         switch = Finder.find(option_parser, short:, long:)
-        v || __optional_switches.any? { _1 === switch } ? v : true
+        is_optional = option_parser.optional_switches.any? { _1 === switch }
+        v || is_optional ? v : true
       end
       switch = option_parser.top.list[-1]
       set_default({
@@ -94,15 +95,6 @@ module Cmd::Mixin::OptionParser
     # @private
     def defaults
       @defaults ||= Ryo({})
-    end
-
-    ##
-    # @private
-    def __optional_switches
-      [
-        CLI::OptionParser::Switch::PlacedArgument,
-        CLI::OptionParser::Switch::OptionalArgument
-      ]
     end
   end
 
