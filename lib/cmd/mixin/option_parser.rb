@@ -6,6 +6,7 @@
 # [OptionParser](https://docs.ruby-lang.org/en/3.2/OptionParser.html)
 # class.
 module Cmd::Mixin::OptionParser
+  require_relative "option_parser/finder"
   require "cli-option_parser"
   require "ryo"
 
@@ -50,7 +51,7 @@ module Cmd::Mixin::OptionParser
     # @return [void]
     def set_option(short, long, desc, as: String, default: nil)
       option_parser.on(short, long, desc, as) do |v|
-        switch = __switch_search(short, long)
+        switch = Finder.find(option_parser, short:, long:)
         v || __optional_switches.any? { _1 === switch } ? v : true
       end
       switch = option_parser.top.list[-1]
@@ -93,15 +94,6 @@ module Cmd::Mixin::OptionParser
     # @private
     def defaults
       @defaults ||= Ryo({})
-    end
-
-    ##
-    # @private
-    def __switch_search(short, long)
-      option_parser.top.list.find do |s|
-        s.short[0] == short[/[^\s]*/] &&
-        s.long[0] == long[/[^\s*]*/]
-      end
     end
 
     ##
